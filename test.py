@@ -1,5 +1,5 @@
 import pandas as pd
-from pandasql import sqldf
+from pandaSQL import sqldf
 
 doar= pd.read_excel("teste.xlsx", sheet_name="DOAR")
 receber= pd.read_excel("teste.xlsx", sheet_name="RECEBER")
