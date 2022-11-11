@@ -19,7 +19,7 @@ total_names = []
 
 option = st.selectbox(
     'Qual tema você gostaria de verificar?',
-    (df.names))
+    (file))
 
 st.write('Você escolheu:', option)
 
