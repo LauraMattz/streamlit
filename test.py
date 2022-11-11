@@ -8,7 +8,7 @@ st.title('Mapa de Redes')
 xlrd.xlsx.ensure_elementtree_imported(False, None)
 xlrd.xlsx.Element_has_iter = True
 
-file = r"C://Users/lmattos/Downloads/teste.xlsx"
+file = "teste.xlsx"
 G = nx.Graph()
 names = []
 total_names = []
