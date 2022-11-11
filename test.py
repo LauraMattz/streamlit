@@ -7,6 +7,9 @@ from tabulate import tabulate
 
 st.title('Mapa de Redes')
 
+st.selectbox('Pick one', [names])
+
+
 xlrd.xlsx.ensure_elementtree_imported(False, None)
 xlrd.xlsx.Element_has_iter = True
 
@@ -37,7 +40,8 @@ nx.draw(G, with_labels=True)
 options = {"node_size": 1200, "node_color": "r"}
 
 
-st.table(names)
+
 plt.show()
+st.table(names)
 
 st.pyplot(plt)
