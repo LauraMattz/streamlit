@@ -19,7 +19,7 @@ total_names = []
 
 option = st.selectbox(
     'Qual tema você gostaria de verificar?',
-    (names))
+    ('FORRÓ', 'YOUTUBE','FUTEBOL','ESTUDAR FORA','MÚSICA'))
 
 st.write('Você escolheu:', option)
 
