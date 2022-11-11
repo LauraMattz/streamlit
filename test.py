@@ -35,3 +35,5 @@ nx.draw(G, with_labels=True)
 options = {"node_size": 1200, "node_color": "r"}
 
 plt.show()
+
+st.pyplot()
