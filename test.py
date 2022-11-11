@@ -2,9 +2,9 @@
 import pandas as pd
 from pandasql import sqldf
 
-doar= pd.read_excel("C://Users/lmattos/Downloads/teste.xlsx", sheet_name="DOAR")
-receber= pd.read_excel("C://Users/lmattos/Downloads/teste.xlsx", sheet_name="RECEBER")
-pessoas= pd.read_excel("C://Users/lmattos/Downloads/teste.xlsx", sheet_name="PESSOAS")
+doar= pd.read_excel("teste.xlsx", sheet_name="DOAR")
+receber= pd.read_excel("teste.xlsx", sheet_name="RECEBER")
+pessoas= pd.read_excel("teste.xlsx", sheet_name="PESSOAS")
 
 q="""
 select nome, doar,receber from doar
