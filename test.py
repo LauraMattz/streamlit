@@ -2,6 +2,8 @@ import streamlit as st
 import networkx as nx
 import matplotlib.pyplot as plt
 import xlrd
+from tabulate import tabulate
+
 
 st.title('Mapa de Redes')
 
@@ -34,6 +36,7 @@ pos = nx.circular_layout(G, scale=5)
 nx.draw(G, with_labels=True)
 options = {"node_size": 1200, "node_color": "r"}
 
+print(tabulate(names,tablefmt='orgtbl'))
 plt.show()
 
 st.pyplot(plt)
