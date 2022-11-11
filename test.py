@@ -36,7 +36,8 @@ pos = nx.circular_layout(G, scale=5)
 nx.draw(G, with_labels=True)
 options = {"node_size": 1200, "node_color": "r"}
 
-print(tabulate(names,tablefmt='orgtbl'))
+
+st.dataframe(data=names, width=None, height=None, *, use_container_width=False)
 plt.show()
 
 st.pyplot(plt)
