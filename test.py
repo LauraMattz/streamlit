@@ -37,7 +37,7 @@ nx.draw(G, with_labels=True)
 options = {"node_size": 1200, "node_color": "r"}
 
 
-st.dataframe(data=names, width=None, height=None, *, use_container_width=False)
+st.table(names)
 plt.show()
 
 st.pyplot(plt)
