@@ -7,7 +7,6 @@ from tabulate import tabulate
 
 st.title('Mapa de Redes')
 
-st.selectbox('Pick one', [names])
 
 
 xlrd.xlsx.ensure_elementtree_imported(False, None)
@@ -17,6 +16,12 @@ file = "teste.xlsx"
 G = nx.Graph()
 names = []
 total_names = []
+
+option = st.selectbox(
+    'Qual tema você gostaria de verificar?',
+    (names))
+
+st.write('Você escolheu:', option)
 
 book = xlrd.open_workbook(file)
 sheet = book.sheet_by_index(0)
