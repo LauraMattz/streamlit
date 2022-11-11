@@ -1,16 +1,38 @@
-import streamlit as st
-import pandas as pd
-from pandaSQL import sqldf
+# import networkx for graph generation
+import networkx as nx
+  
+# import matplotlib library
+import matplotlib.pyplot as plt
 
-doar= pd.read_excel("teste.xlsx", sheet_name="DOAR")
-receber= pd.read_excel("teste.xlsx", sheet_name="RECEBER")
-pessoas= pd.read_excel("teste.xlsx", sheet_name="PESSOAS")
+# import xlrd for excel reading
+import xlrd
 
-q="""
-select nome, doar,receber from doar
-left join pessoas on doar.ID_QUEM = pessoas.ID
-left join receber on receber.ID_QUEM = pessoas.ID
-where doar = 'FUTEBOL'
-"""
+xlrd.xlsx.ensure_elementtree_imported(False, None)
+xlrd.xlsx.Element_has_iter = True
 
-print(sqldf(q))
+file = r"C://Users/lmattos/Downloads/teste.xlsx"
+G = nx.Graph()
+names = []
+total_names = []
+
+book = xlrd.open_workbook(file)
+sheet = book.sheet_by_index(0)
+
+for row in range(sheet.nrows):
+    data= sheet.row_slice(row)
+    person1 = data[0].value
+    person2 = data[1].value
+    names.append((person1, person2))
+    total_names.append(person1)
+    total_names.append(person2)
+    
+node_sizes = [(total_names.count(node)*100) for node in G.nodes()]
+
+
+G.add_edges_from(names)
+
+pos = nx.circular_layout(G, scale=1)
+
+nx.draw(G, pos, with_labels=True)
+
+plt.show()
