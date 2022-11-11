@@ -1,6 +1,5 @@
 streamlit
-pandas
-plost
-networkx
-matplotlib.pyplot 
-xlrd
+pandas==1.4.2
+networkx==2.7.1
+matplotlib==3.5.1
+xlrd==1.2.0
