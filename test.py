@@ -46,17 +46,10 @@ pos = nx.circular_layout(G, scale=5)
 nx.draw(G, with_labels=True)
 options = {"node_size": 1200, "node_color": "r"}
 
-@st.cache
-def get_data():
-    path = 'teste.xlsx'
-    return pd.ExcelFile(path)
-    df = get_data()
-make_choice = st.sidebar.selectbox('Select your vehicle:', makes)
-
-
+dfs = pd.read_excel("teste.xlsx", sheetname=None)
 
 plt.show()
 st.table(names)
-st.table(df)
+st.table(dfs)
 
 st.pyplot(plt)
