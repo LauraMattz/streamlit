@@ -56,7 +56,7 @@ def filter_dataframe(excel_data_df: pd.DataFrame) -> pd.DataFrame:
       modify = st.checkbox("Add filters")
 
    if not modify:
-    return excel_data_df
+        return excel_data_df
 
 df = excel_data_df.copy()
 
