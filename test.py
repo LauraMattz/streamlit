@@ -12,53 +12,6 @@ from pandas.api.types import (
 import pandas as pd
 
 st.title('Mapa de Redes')
-
-excel_data_df = pd.read_excel('teste.xlsx', sheet_name='DOAR')
-def filter_dataframe(excel_data_df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Adds a UI on top of a dataframe to let viewers filter columns
-
-    Args:
-        df (pd.DataFrame): Original dataframe
-
-    Returns:
-        pd.DataFrame: Filtered dataframe
-    """
-    modify = st.checkbox("Add filters")
-
-    if not modify:
-        return df 
-df = excel_data_df.copy()
-
-# Try to convert datetimes into a standard format (datetime, no timezone)
-for col in df.columns:
-    if is_object_dtype(df[col]):
-    	try:
-    	    df[col] = pd.to_datetime(df[col])
-    	except Exception:
-    	    pass
-
-    if is_datetime64_any_dtype(df[col]):
-        df[col] = df[col].dt.tz_localize(None)
-        
-modification_container = st.container()
-with modification_container:
-    to_filter_columns = st.multiselect("Escolha a Categoria", df.columns)
-    
-for column in to_filter_columns:
-    left, right = st.columns((1, 20))
-    left.write("↳")
-# Treat columns with < 10 unique values as categorical
-if is_categorical_dtype(df[column]) or df[column].nunique():
-    user_cat_input = right.multiselect(
-        f"Relacionados a {column}",
-        df[column].unique(),
-        default=list(df[column].unique()),
-    )
-    df = df[df[column].isin(user_cat_input)]
-st.write('Você escolheu:', filter_dataframe(df))
-st.dataframe(filter_dataframe(df))
-
   
 xlrd.xlsx.ensure_elementtree_imported(False, None)
 xlrd.xlsx.Element_has_iter = True
@@ -94,4 +47,49 @@ plt.show()
 st.pyplot(plt)
 
 
+excel_data_df = pd.read_excel('teste.xlsx', sheet_name='DOAR')
+def filter_dataframe(excel_data_df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Adds a UI on top of a dataframe to let viewers filter columns
+
+    Args:
+        df (pd.DataFrame): Original dataframe
+
+    Returns:
+        pd.DataFrame: Filtered dataframe
+    """
+    modify = st.checkbox(label='Filtro', value=False, key='test')
+
+    if not modify:
+        return df 
+df = excel_data_df.copy()
+
+# Try to convert datetimes into a standard format (datetime, no timezone)
+for col in df.columns:
+    if is_object_dtype(df[col]):
+    	try:
+    	    df[col] = pd.to_datetime(df[col])
+    	except Exception:
+    	    pass
+
+    if is_datetime64_any_dtype(df[col]):
+        df[col] = df[col].dt.tz_localize(None)
+        
+modification_container = st.container()
+with modification_container:
+    to_filter_columns = st.multiselect("Escolha a Categoria", df.columns)
+    
+for column in to_filter_columns:
+    left, right = st.columns((1, 20))
+    left.write("↳")
+# Treat columns with < 10 unique values as categorical
+if is_categorical_dtype(df[column]) or df[column].nunique():
+    user_cat_input = right.multiselect(
+        f"Relacionados a {column}",
+        df[column].unique(),
+        default=list(df[column].unique()),
+    )
+    df = df[df[column].isin(user_cat_input)]
+st.write('Você escolheu:', filter_dataframe(df))
+st.dataframe(filter_dataframe(df))
 
