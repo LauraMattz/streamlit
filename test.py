@@ -3,7 +3,15 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import xlrd
 from tabulate import tabulate
+import pandas as pd
 
+uploaded_file = st.file_uploader("teste.xlsx", type="xlsx")
+
+if uploaded_file:
+    df = pd.read_excel(uploaded_file)
+
+    st.dataframe(df)
+    st.table(df)
 
 st.title('Mapa de Redes')
 
