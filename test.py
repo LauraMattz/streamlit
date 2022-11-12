@@ -24,10 +24,6 @@ option = st.selectbox(
 
 st.write('Você escolheu:', option)
 
-positions = list(names)
-position_choice = st.sidebar.multiselect(
-    'Choose position:', positions, default=positions)
-names = names[names['position'].isin(position_choice)]
 
 book = xlrd.open_workbook(file)
 sheet = book.sheet_by_index(0)
@@ -51,8 +47,13 @@ nx.draw(G, with_labels=True)
 options = {"node_size": 1200, "node_color": "r"}
 
 
+positions = list(names)
+position_choice = st.sidebar.multiselect(
+    'Choose position:', positions, default=positions)
+names = names[names['position'].isin(position_choice)]
+
 plt.show()
-st.table(names)
+st.table(positions)
 
 st.pyplot(plt)
 
