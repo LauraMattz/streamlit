@@ -48,7 +48,7 @@ options = {"node_size": 1200, "node_color": "r"}
 
 
 plt.show()
-st.table(positions)
+st.table(names)
 
 st.pyplot(plt)
 
