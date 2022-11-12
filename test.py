@@ -58,7 +58,7 @@ def filter_dataframe(excel_data_df: pd.DataFrame) -> pd.DataFrame:
     Returns:
         pd.DataFrame: Filtered dataframe
     """
-    modify = st.checkbox(label='Filtro', value=False, key='test')
+    modify = st.checkbox("Add filters")
 
     if not modify:
         return df 
@@ -94,3 +94,27 @@ st.write('Você escolheu:', filter_dataframe(df))
 st.dataframe(filter_dataframe(df))
 
 
+sources = list(df['Source airport'])
+destinations = list(df['Destination airport'])
+
+
+g_from_data =net.Network(height='600px',width='50%',
+              bgcolor='white',font_color="black",
+              heading="A Networkx Graph from DataFrame",directed=True)
+ 
+for i in range(len(sources)):
+  try:
+    g_from_data.add_node(sources[i],label=sources[i],title=sources[i])
+  except:
+    pass
+ 
+for (i,j) in zip(sources,destinations):
+    try:
+      g_from_data.add_edge(i,j)
+    except:
+      pass
+ 
+g_from_data.show_buttons(['physics'])
+ 
+g_from_data.show('A_Complete_Networkx_Graph_From_DataFrame.html')
+display(HTML('A_Complete_Networkx_Graph_From_DataFrame.html'))
