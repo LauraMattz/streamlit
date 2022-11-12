@@ -36,7 +36,7 @@ for row in range(sheet.nrows):
 node_sizes = [(total_names.count(node)*100) for node in G.nodes()]
 
 
-G.add_edges_from(filter_dataframe(df))
+G.add_edges_from(names)
 
 pos = nx.circular_layout(G, scale=5)
 
