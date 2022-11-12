@@ -73,7 +73,7 @@ for col in df.columns:
         
 modification_container = st.container()
 with modification_container:
-    to_filter_columns = st.multiselect("Escokha a Categoria", df.columns)
+    to_filter_columns = st.multiselect("Escolha a Categoria", df.columns)
     
 for column in to_filter_columns:
     left, right = st.columns((1, 20))
@@ -91,6 +91,6 @@ st.dataframe(filter_dataframe(df))
 
 
 plt.show()
-st.table(df)
+
 
 st.pyplot(plt)
