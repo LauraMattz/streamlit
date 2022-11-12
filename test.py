@@ -47,7 +47,7 @@ nx.draw(G, with_labels=True)
 options = {"node_size": 1200, "node_color": "r"}
 
 
-positions = list(options)
+positions = list(option)
 position_choice = st.sidebar.multiselect(
     'Choose position:', positions, default=positions)
 names = names[names['position'].isin(position_choice)]
