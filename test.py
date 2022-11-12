@@ -14,7 +14,7 @@ xlrd.xlsx.Element_has_iter = True
 
 file = "teste.xlsx"
 G = nx.Graph()
-names = []
+
 total_names = []
 
 option = st.selectbox(
@@ -22,6 +22,8 @@ option = st.selectbox(
     ('FORRÓ', 'YOUTUBE','FUTEBOL','ESTUDAR FORA','MÚSICA'))
 
 st.write('Você escolheu:', option)
+
+names = (option)
 
 book = xlrd.open_workbook(file)
 sheet = book.sheet_by_index(0)
