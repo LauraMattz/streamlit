@@ -3,11 +3,16 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import xlrd
 from tabulate import tabulate
+from pandas.api.types import (
+    is_categorical_dtype,
+    is_datetime64_any_dtype,
+    is_numeric_dtype,
+    is_object_dtype,
+)
 import pandas as pd
 
 st.title('Mapa de Redes')
-
-
+  
 xlrd.xlsx.ensure_elementtree_imported(False, None)
 xlrd.xlsx.Element_has_iter = True
 
@@ -47,6 +52,13 @@ nx.draw(G, with_labels=True)
 options = {"node_size": 1200, "node_color": "r"}
 
 excel_data_df = pd.read_excel('teste.xlsx', sheet_name='DOAR')
+def filter_dataframe(excel_data_df: pd.DataFrame) -> pd.DataFrame:
+      modify = st.checkbox("Add filters")
+
+    if not modify:
+        return excel_data_df
+
+    df = excel_data_df.copy()
 
 
 plt.show()
