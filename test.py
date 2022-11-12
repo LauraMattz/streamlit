@@ -41,7 +41,7 @@ for row in xrange(1,ws.max_row + 1):
     for col in xrange(1,sheet.max_column + 1):
         _cell = sheet.cell(row=row, column=col)
         if any(word in str(_cell.value) for word in search_words):
-            print print_row(row)
+            print(row)
             break
     
 node_sizes = [(total_names.count(node)*100) for node in G.nodes()]
