@@ -58,7 +58,7 @@ def filter_dataframe(excel_data_df: pd.DataFrame) -> pd.DataFrame:
     Returns:
         pd.DataFrame: Filtered dataframe
     """
-    modify = st.checkbox.1(label='Filtro', value=False, key='test')
+    modify = st.checkbox(label='Filtro', value=False, key='filtro')
 
     if not modify:
         return df 
