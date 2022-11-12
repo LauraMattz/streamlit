@@ -79,7 +79,7 @@ for column in to_filter_columns:
     left, right = st.columns((1, 20))
     left.write("↳")
 # Treat columns with < 10 unique values as categorical
-if is_categorical_dtype(df[column]) or df[column].nunique() < 10:
+if is_categorical_dtype(df[column]) or df[column].nunique():
     user_cat_input = right.multiselect(
         f"Relacionados a {column}",
         df[column].unique(),
