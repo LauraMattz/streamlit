@@ -45,6 +45,10 @@ pos = nx.circular_layout(G, scale=5)
 nx.draw(G, with_labels=True)
 options = {"node_size": 1200, "node_color": "r"}
 
+positions = list(names)
+position_choice = st.sidebar.multiselect(
+    'Choose position:', positions, default=positions)
+names = names[names['position'].isin(position_choice)]
 
 
 plt.show()
@@ -52,8 +56,8 @@ st.table(names)
 
 st.pyplot(plt)
 
-df = pd.read_csv('fpldata.csv')
 
-positions = list(names)
-position_choice = st.sidebar.multiselect(
-    'Choose position:', positions, default=positions)
+
+
+
+
