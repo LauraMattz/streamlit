@@ -47,10 +47,10 @@ nx.draw(G, with_labels=True)
 options = {"node_size": 1200, "node_color": "r"}
 
 
-positions = list(names)
+positions = list(person1)
 position_choice = st.sidebar.multiselect(
     'Choose position:', positions, default=positions)
-names = names[names['position'].isin(position_choice)]
+person1 = person1[person1['position'].isin(position_choice)]
 
 plt.show()
 st.table(positions)
