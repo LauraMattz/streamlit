@@ -51,6 +51,9 @@ def get_data():
     path = 'teste.xlsx'
     return pd.ExcelFile(path)
     df = get_data()
+make_choice = st.sidebar.selectbox('Select your vehicle:', makes)
+
+
 
 plt.show()
 st.table(names)
