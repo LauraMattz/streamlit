@@ -48,7 +48,7 @@ options = {"node_size": 1200, "node_color": "r"}
 
 @st.cache
 def get_data():
-path = r'teste.xlsx'
+path = 'teste.xlsx'
 return pd.ExcelFile(path)
 df = get_data()
 
