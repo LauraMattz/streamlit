@@ -72,7 +72,6 @@ df = excel_data_df.copy()
 
 
 plt.show()
-st.table(names)
-st.table(excel_data_df)
+st.table(df)
 
 st.pyplot(plt)
