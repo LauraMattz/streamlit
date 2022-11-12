@@ -5,16 +5,7 @@ import xlrd
 from tabulate import tabulate
 import pandas as pd
 
-uploaded_file = st.file_uploader("teste.xlsx", type="xlsx")
-
-if uploaded_file:
-    df = pd.read_excel(uploaded_file)
-
-    st.dataframe(df)
-    st.table(df)
-
 st.title('Mapa de Redes')
-
 
 
 xlrd.xlsx.ensure_elementtree_imported(False, None)
@@ -81,11 +72,21 @@ st.write(
 )
 
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
-    <insert the code we wrote here>
+    """
+    Adds a UI on top of a dataframe to let viewers filter columns
+
+    Args:
+        df (pd.DataFrame): Original dataframe
+
+    Returns:
+        pd.DataFrame: Filtered dataframe
+    """
+    modify = st.checkbox("Add filters")
+
+    if not modify:
+        return df 
 
 data_url = "https://github.com/LauraMattz/streamlit/blob/main/teste.xlsx"
 
 df = pd.read_csv(data_url)
 st.dataframe(filter_dataframe(df))
-
-
