@@ -118,3 +118,4 @@ g_from_data.show_buttons(['physics'])
  
 g_from_data.show('A_Complete_Networkx_Graph_From_DataFrame.html')
 display(HTML('A_Complete_Networkx_Graph_From_DataFrame.html'))
+st.pyplot(g_from_data)
