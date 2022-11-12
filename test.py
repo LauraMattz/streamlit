@@ -22,13 +22,6 @@ G = nx.Graph()
 total_names = []
 names= []
 
-option = st.selectbox(
-    'Qual tema você gostaria de verificar?',
-    ('FORRÓ', 'YOUTUBE','FUTEBOL','ESTUDAR FORA','MÚSICA'))
-
-st.write('Você escolheu:', option)
-
-
 book = xlrd.open_workbook(file)
 sheet = book.sheet_by_index(0)
 search_words = (option)
@@ -81,7 +74,7 @@ for col in df.columns:
         
 modification_container = st.container()
 with modification_container:
-    to_filter_columns = st.multiselect("Filter dataframe on", df.columns)
+    to_filter_columns = st.multiselect("Escokha a Categoria", df.columns)
     
 for column in to_filter_columns:
     left, right = st.columns((1, 20))
@@ -89,11 +82,12 @@ for column in to_filter_columns:
 # Treat columns with < 10 unique values as categorical
 if is_categorical_dtype(df[column]) or df[column].nunique() < 10:
     user_cat_input = right.multiselect(
-        f"Values for {column}",
+        f"Relacionados a {column}",
         df[column].unique(),
         default=list(df[column].unique()),
     )
     df = df[df[column].isin(user_cat_input)]
+st.write('Você escolheu:', filter_dataframe(df))
 st.dataframe(filter_dataframe(df))
 
 
