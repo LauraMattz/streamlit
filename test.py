@@ -16,15 +16,13 @@ st.title('Mapa de Redes')
 xlrd.xlsx.ensure_elementtree_imported(False, None)
 xlrd.xlsx.Element_has_iter = True
 
-excel_data_df = pd.read_excel('teste.xlsx', sheet_name='DOAR')
-
 file = "teste.xlsx"
 G = nx.Graph()
 
 total_names = []
 names= []
 
-book = excel_data_df
+book = xlrd.open_workbook(file)
 sheet = book.sheet_by_index(0)
 
 for row in range(sheet.nrows):
@@ -49,6 +47,7 @@ plt.show()
 st.pyplot(plt)
 
 
+excel_data_df = pd.read_excel('teste.xlsx', sheet_name='DOAR')
 def filter_dataframe(excel_data_df: pd.DataFrame) -> pd.DataFrame:
     """
     Adds a UI on top of a dataframe to let viewers filter columns
