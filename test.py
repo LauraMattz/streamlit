@@ -46,10 +46,11 @@ pos = nx.circular_layout(G, scale=5)
 nx.draw(G, with_labels=True)
 options = {"node_size": 1200, "node_color": "r"}
 
-dfs = pd.read_excel("teste.xlsx", sheet='DOAR')
+excel_data_df = pandas.read_excel('teste.xlsx', sheet_name='DOAR')
+
 
 plt.show()
 st.table(names)
-st.table(dfs)
+st.table(excel_data_df)
 
 st.pyplot(plt)
