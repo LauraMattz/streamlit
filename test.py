@@ -73,7 +73,7 @@ book = xlrd.open_workbook(file)
 sheet = book.sheet_by_index(0)
 
 for row in range(sheet.nrows):
-    data= df.row_slice(row)
+    data= sheet.row_slice(row)
     person1 = data[0].value
     person2 = data[1].value
     names.append((person1, person2))
