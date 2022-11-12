@@ -58,7 +58,8 @@ def filter_dataframe(excel_data_df: pd.DataFrame) -> pd.DataFrame:
     Returns:
         pd.DataFrame: Filtered dataframe
     """
-    return excel_data_df 
+       return df 
+df = excel_data_df
 
 # Try to convert datetimes into a standard format (datetime, no timezone)
 for col in df.columns:
