@@ -24,7 +24,6 @@ names= []
 
 book = xlrd.open_workbook(file)
 sheet = book.sheet_by_index(0)
-search_words = (option)
 
 for row in range(sheet.nrows):
     data= sheet.row_slice(row)
