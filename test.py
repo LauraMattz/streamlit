@@ -43,6 +43,10 @@ pos = nx.circular_layout(G, scale=5)
 nx.draw(G, with_labels=True)
 options = {"node_size": 1200, "node_color": "r"}
 
+plt.show()
+st.pyplot(plt)
+
+
 excel_data_df = pd.read_excel('teste.xlsx', sheet_name='DOAR')
 def filter_dataframe(excel_data_df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -90,7 +94,3 @@ st.write('Você escolheu:', filter_dataframe(df))
 st.dataframe(filter_dataframe(df))
 
 
-plt.show()
-
-
-st.pyplot(plt)
