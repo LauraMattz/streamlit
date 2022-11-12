@@ -55,10 +55,10 @@ excel_data_df = pd.read_excel('teste.xlsx', sheet_name='DOAR')
 def filter_dataframe(excel_data_df: pd.DataFrame) -> pd.DataFrame:
       modify = st.checkbox("Add filters")
 
-    if not modify:
-        return excel_data_df
+if not modify:
+return excel_data_df
 
-    df = excel_data_df.copy()
+df = excel_data_df.copy()
 
 
 plt.show()
