@@ -52,35 +52,8 @@ st.table(names)
 
 st.pyplot(plt)
 
-import streamlit as st
-import pandas as pd
+df = pd.read_csv('fpldata.csv')
 
-#define data
-d = {'id': ['a', 'b', 'c'], 'data': [3, 4,6]}
-df = pd.DataFrame(data=d)
-
-
-#create sidebar input
-with st.sidebar.form("my_form"):
-    a = st.slider('sidebar for testing', 5, 10, 9)
-    calculate = st.form_submit_button('Calculate')
-
-# Initialization
-if 'button_pressed' not in st.session_state:
-    st.session_state['button_pressed'] = False
-
-# Changes if calculated button is pressed  
-if calculate:
-    st.session_state['button_pressed'] = True
-
-# Conditional on session_state instead
-if st.session_state['button_pressed']:
-    df['result'] = df['data'] + a
-    st.write(df)
-    #no issues up to this point. When I move the slider in 10 the output in 16 stays on the web page
-
-    ########debug############
-    # I am trying to select an 'id' from the dropdown and use that to filter df, but when I select a value from the dropdown,
-    # the script runs again and the output disappears
-    filter = st.selectbox('filter data', df['id'].unique())
-    st.write(df[df['id'] == filter])
+positions = list(names)
+position_choice = st.sidebar.multiselect(
+    'Choose position:', positions, default=positions)
