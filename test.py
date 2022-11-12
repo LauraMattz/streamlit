@@ -73,19 +73,19 @@ for col in df.columns:
         
 modification_container = st.container()
 with modification_container:
-    to_filter_columns = st.multiselect("Escolha a Categoria", df.columns)
+    to_filter_columns = st.multiselect("Escolha a Categoria", excel_data_df.columns)
     
 for column in to_filter_columns:
     left, right = st.columns((1, 20))
     left.write("↳")
 # Treat columns with < 10 unique values as categorical
-if is_categorical_dtype(df[column]) or df[column].nunique():
+if is_categorical_dtype(excel_data_df[column]) or excel_data_df[column].nunique():
     user_cat_input = right.multiselect(
         f"Relacionados a {column}",
         df[column].unique(),
         default=list(df[column].unique()),
     )
-    df = df[df[column].isin(user_cat_input)]
-st.write('Você escolheu:', filter_dataframe(df))
-st.dataframe(filter_dataframe(df))
+    excel_data_df = excel_data_df[excel_data_df[column].isin(user_cat_input)]
+st.write('Você escolheu:', filter_dataframe(excel_data_df))
+st.dataframe(filter_dataframe(excel_data_df))
 
