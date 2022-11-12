@@ -46,7 +46,7 @@ pos = nx.circular_layout(G, scale=5)
 nx.draw(G, with_labels=True)
 options = {"node_size": 1200, "node_color": "r"}
 
-dfs = pd.read_excel("teste.xlsx", sheetname=None)
+dfs = pd.read_excel("teste.xlsx", sheetname='DOAR')
 
 plt.show()
 st.table(names)
