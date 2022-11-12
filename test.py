@@ -73,7 +73,7 @@ book = xlrd.open_workbook(file)
 sheet = book.sheet_by_index(0)
 
 for row in range(sheet.nrows):
-    data= sheet.row_slice(row)
+    data= df.row_slice(row)
     person1 = data[0].value
     person2 = data[1].value
     names.append((person1, person2))
@@ -83,7 +83,7 @@ for row in range(sheet.nrows):
 node_sizes = [(total_names.count(node)*100) for node in G.nodes()]
 
 
-G.add_edges_from(df)
+G.add_edges_from(names)
 
 pos = nx.circular_layout(G, scale=5)
 
