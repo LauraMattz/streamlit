@@ -27,8 +27,6 @@ st.write('Você escolheu:', option)
 book = xlrd.open_workbook(file)
 sheet = book.sheet_by_index(0)
 
-words= (option)
-
 for row in range(sheet.nrows):
     data= sheet.row_slice(row)
     person1 = data[0].value
@@ -37,9 +35,14 @@ for row in range(sheet.nrows):
     total_names.append(person1)
     total_names.append(person2)
     
-for word in words:                  # for each word in list
-        if word in str(sheet.nrows):     # check of word in row
-            print 'line',rx 
+search_words = (option)
+
+for row in xrange(1,ws.max_row + 1):
+    for col in xrange(1,sheet.max_column + 1):
+        _cell = sheet.cell(row=row, column=col)
+        if any(word in str(_cell.value) for word in search_words):
+            print "line {}".format(row - 1)
+            break
     
 node_sizes = [(total_names.count(node)*100) for node in G.nodes()]
 
