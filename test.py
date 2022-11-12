@@ -47,7 +47,7 @@ nx.draw(G, with_labels=True)
 options = {"node_size": 1200, "node_color": "r"}
 
 @st.cache
-    def get_data():
+def get_data():
     path = 'teste.xlsx'
     return pd.ExcelFile(path)
     df = get_data()
@@ -57,4 +57,3 @@ st.table(names)
 st.table(df)
 
 st.pyplot(plt)
-
