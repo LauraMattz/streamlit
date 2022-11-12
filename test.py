@@ -53,9 +53,20 @@ options = {"node_size": 1200, "node_color": "r"}
 
 excel_data_df = pd.read_excel('teste.xlsx', sheet_name='DOAR')
 def filter_dataframe(excel_data_df: pd.DataFrame) -> pd.DataFrame:
-      modify = st.checkbox("Add filters")
+    """
+    Adds a UI on top of a dataframe to let viewers filter columns
+
+    Args:
+        df (pd.DataFrame): Original dataframe
+
+    Returns:
+        pd.DataFrame: Filtered dataframe
+    """
+    modify = st.checkbox("Add filters")
+
     if not modify:
         return df
+
 
 df = excel_data_df.copy()
 
