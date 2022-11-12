@@ -58,7 +58,6 @@ def filter_dataframe(excel_data_df: pd.DataFrame) -> pd.DataFrame:
     Returns:
         pd.DataFrame: Filtered dataframe
     """
-    if not modify:
         return df 
 df = excel_data_df.copy()
 
