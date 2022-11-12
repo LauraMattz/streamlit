@@ -35,9 +35,6 @@ for row in range(sheet.nrows):
     names.append((person1, person2))
     total_names.append(person1)
     total_names.append(person2)
-    if any(word in str(_cell.value) for word in search_words):
-            print(row)
-
     
 node_sizes = [(total_names.count(node)*100) for node in G.nodes()]
 
@@ -49,9 +46,15 @@ pos = nx.circular_layout(G, scale=5)
 nx.draw(G, with_labels=True)
 options = {"node_size": 1200, "node_color": "r"}
 
+@st.cache
+def get_data():
+path = r'teste.xlsx'
+return pd.ExcelFile(path)
+df = get_data()
 
 plt.show()
 st.table(names)
+st.table(df)
 
 st.pyplot(plt)
 
