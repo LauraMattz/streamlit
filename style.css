@@ -1,3 +1,8 @@
 footer {
     visibility: hidden;
 }
+
+body {
+    color: rgb(45, 49, 45);
+    background-color: #22222218;
+}
