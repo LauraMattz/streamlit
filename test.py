@@ -13,6 +13,14 @@ import pandas as pd
 
 with open("style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html = True)
+    
+# import Image from pillow to open images
+from PIL import Image
+img = Image.open("streamlit.png")
+ 
+# display image using streamlit
+# width is used to set the width of an image
+st.image(img, width=200)
 
 st.title('Mapa de Redes')
   
