@@ -16,7 +16,7 @@ with open("style.css") as f:
     
 # import Image from pillow to open images
 from PIL import Image
-img = Image.open("streamlit.png")
+img = Image.open("streamlit2.png")
  
 # display image using streamlit
 # width is used to set the width of an image
