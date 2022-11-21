@@ -11,6 +11,9 @@ from pandas.api.types import (
 )
 import pandas as pd
 
+with open("style.css") as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html = True)
+
 st.title('Mapa de Redes')
   
 xlrd.xlsx.ensure_elementtree_imported(False, None)
